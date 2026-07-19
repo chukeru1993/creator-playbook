@@ -1,0 +1,4 @@
+interface:
+  display_name: "视频口播脚本专家"
+  short_description: "从选题定位到完整口播稿、镜头设计与质量自检的创作工作流"
+  default_prompt: "使用 $video-script-writer 把我的主题或草稿策划并写成高留存、可直接录制的视频口播脚本。"

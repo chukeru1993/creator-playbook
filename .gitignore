@@ -1,0 +1,27 @@
+# macOS and editor files
+.DS_Store
+.idea/
+.vscode/
+*.swp
+*.swo
+
+# Secrets and local settings
+.env
+.env.*
+!.env.example
+*.pem
+*.key
+
+# Large project assets do not belong in this methods repository
+*.mp4
+*.mov
+*.mkv
+*.wav
+*.mp3
+*.aac
+
+# Build output
+node_modules/
+dist/
+build/
+out/
