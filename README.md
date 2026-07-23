@@ -16,6 +16,7 @@
     ├── skills/                  可分发的 Agent Skill
     ├── video/
     │   ├── styles/              视觉样式与设计系统
+    │   │   └── previews/        各样式的示例帧截图
     │   └── storyboards/         分镜方法、镜头卡与验收模板
     └── docs/                    资产索引与同步说明
 
@@ -25,7 +26,8 @@
 | --- | --- | --- |
 | skills/video-script-writer/ | 完整视频口播脚本 Skill | 可安装、可改进的完整 Skill |
 | skills/video-hook-builder/ | 视频开头与前 30 秒优化 Skill | 可安装、可改进的完整 Skill |
-| video/styles/DESIGN.md | Graphite Rule Console | 中文知识视频的默认视觉样式规范 |
+| video/styles/DESIGN.md | Graphite Rule Console | 中文知识视频的默认视觉样式规范（[预览图](video/README.md#样式预览)） |
+| video/styles/DESIGN.sticker-workbench.md | Sticker Workbench | 奶油纸面贴纸工作台样式规范（[预览图](video/README.md#样式预览)） |
 | video/storyboards/知识讲解视频-设计与演出复用框架.md | 镜头论证与验收框架 | 将内容拆为有明确观众结论的分镜 |
 | video/storyboards/templates/镜头卡.template.md | 通用镜头卡 | 新视频项目分镜时复制使用 |
 
