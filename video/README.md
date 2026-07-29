@@ -6,7 +6,9 @@
 
 视觉样式与设计系统，例如颜色 token、字体层级、字幕安全区、动效语言和明确禁用项。它回答的是：画面怎样保持同一种风格。
 
-新建派生规范时，从 styles/templates/DESIGN.template.md 复制开始；不要把项目专属内容写回默认 DESIGN.md。
+新建派生规范时，从 [styles/templates/DESIGN.template.md](styles/templates/DESIGN.template.md) 复制开始；不要把项目专属内容写回默认 DESIGN.md。
+
+共享 DESIGN 只定义可跨项目复用的视觉语法：token、文字层级、字幕安全区、关系拓扑、动效词典、DIM/HOLD 与验收原则。每个项目再从 [styles/templates/PROJECT-VISUAL-CONTRACT.template.yaml](styles/templates/PROJECT-VISUAL-CONTRACT.template.yaml) 生成独立视觉适配合约，记录最终音频/SRT、beat registry、章节色彩、项目节点与连线、逐 cue 事件和关键帧验收；项目专属场景、文案、时间点与色彩弧度不得写回共享 DESIGN。
 
 ### 样式预览
 

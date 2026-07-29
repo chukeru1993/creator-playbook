@@ -1,0 +1,165 @@
+schema_version: "1.0"
+contract_type: "project_visual_contract"
+
+# 此文件承载项目专属适配；不得把这些值回写到共享 DESIGN。
+project:
+  name: "<project-name>"
+  status: "draft"
+  language: "<language>"
+  aspect_ratio: "<for-example-16:9>"
+
+inheritance:
+  shared_design: "<path-to-shared-DESIGN.md>"
+  storyboard_framework: "<path-to-storyboard-framework.md>"
+  video_spec: "<path-to-video-spec.md>"
+  shared_scope:
+    - "tokens"
+    - "typography"
+    - "safe_areas"
+    - "topology_rules"
+    - "motion_vocabulary"
+    - "acceptance_principles"
+  project_scope:
+    - "chapter_color_narrative"
+    - "scene_topology"
+    - "cue_events"
+    - "project_specific_readability"
+    - "project_acceptance"
+
+time_authority:
+  final_audio:
+    path: "<path-to-final-audio>"
+    authority: "final narration timing source"
+  final_srt:
+    path: "<path-to-final-srt>"
+    authority: "final subtitle timing source"
+  beat_registry:
+    path: "<path-to-beat-registry>"
+    authority: "cue-to-local-time mapping and terminal-state registry"
+  conflict_order:
+    - "final_audio_and_final_srt"
+    - "video_spec_scene_facts"
+    - "this_project_visual_contract"
+    - "shared_design"
+    - "storyboard_framework"
+
+chapter_color_narrative:
+  - chapter: "<chapter-name>"
+    scene_range: "<for-example-01-04>"
+    color_focus: ["<semantic-color>"]
+    narrative_intent: "<why-this-color-focus-serves-the-chapter>"
+
+earned_green:
+  - id: "<unique-earned-green-id>"
+    scene: "<scene-id>"
+    target: "<semantic-target>"
+    cue: "<final-srt-cue-range>"
+    local_enter_window:
+      start_sec: "<local-start>"
+      end_sec: "<local-end>"
+    pre_state: "neutral_or_muted"
+    resolution: "Green after the judgment is established"
+    terminal_state: "<readable-final-conclusion>"
+
+dim_policy:
+  levels:
+    light:
+      minimum_opacity: "0.70"
+      minimum_brightness: "0.88"
+      use_when: "comparison remains fully readable"
+    medium:
+      minimum_opacity: "0.55"
+      minimum_brightness: "0.78"
+      use_when: "object remains explanatory but is no longer focal"
+    strong:
+      opacity_range: "0.40-0.54"
+      brightness_range: "0.65-0.77"
+      use_when: "redundant object no longer needs reading"
+  events:
+    - id: "<unique-dim-id>"
+      scene: "<scene-id>"
+      target: "<non-focal-object>"
+      level: "light|medium|strong"
+      cue: "<final-srt-cue-range>"
+      local_enter_window:
+        start_sec: "<local-start>"
+        end_sec: "<local-end>"
+      reason: "<why-the-object-may-step-back>"
+      readability_requirement: "<what-must-remain-readable>"
+
+state_color_timing:
+  - id: "<unique-state-color-id>"
+    scene: "<scene-id>"
+    target: "<node-or-text>"
+    from: "Muted|Blue|Coral|other"
+    to: "Green|Blue|Coral|other"
+    cue: "<final-srt-cue-range>"
+    local_enter_window:
+      start_sec: "<local-start>"
+      end_sec: "<local-end>"
+    terminal_state: "<state-and-readable-copy>"
+
+scene_topology:
+  - scene: "<scene-id>"
+    relationship: "hub_and_spoke|decision_fork|linear_flow|tree|comparison|other"
+    nodes:
+      - id: "<node-id>"
+        role: "source|target|hub|decision|branch|annotation"
+    edges:
+      - from: "<source-node-id>"
+        to: "<target-node-id>"
+        verb: "CONNECT"
+        semantic_direction: "<why-this-direction-is-correct>"
+    layout_constraints:
+      - "lines touch both node edges"
+      - "labels, lines and nodes do not overlap"
+      - "equal-weight spokes are balanced or an asymmetry reason is recorded"
+      - "branch explanations belong to the matching branch"
+    terminal_state: "<readable-final-relationship>"
+
+typography_weight:
+  - scene: "<scene-id>"
+    primary_copy: "<copy-or-semantic-role>"
+    hierarchy_change: "<size-weight-or-supporting-layer-rule>"
+    caption_safe_area: "must remain clear"
+
+cue_events:
+  - id: "<unique-cue-event-id>"
+    scene: "<scene-id>"
+    cue: "<final-srt-cue-range>"
+    local_enter_window:
+      start_sec: "<local-start>"
+      end_sec: "<local-end>"
+    narration_claim: "<what-the-cue-establishes>"
+    visual_event: "SLAM|CASCADE|LOCK|CONNECT|CHECK|FLAG|DIM|RESOLVE|HOLD|FADE OUT"
+    screen_objects: ["<object-or-copy>"]
+    evidence_type: "relationship_diagram|verified_text|real_screen_recording|verified_asset"
+    terminal_state: "<what-is-visible-and-readable-after-the-event>"
+
+manual_layout_reviews:
+  - scene: "<scene-id>"
+    review_type: "topology|readability|caption_clearance|other"
+    requirements:
+      - "<manual-review-requirement>"
+    timing: "cue_plus_local_window|required_static_frame|manual_only"
+    note: "<do-not-invent-a-timing-window-when-none-is-defined>"
+
+acceptance:
+  automated:
+    - id: "contract_reference"
+      requirement: "build and project documents reference this contract"
+    - id: "time_authority"
+      requirement: "final audio, SRT and beat registry paths resolve in the project"
+    - id: "timeline_contract"
+      requirement: "each recorded cue event has a cue, local enter window and terminal state"
+    - id: "motion_contract"
+      requirement: "named motion verbs preserve the declared terminal state and HOLD"
+  manual:
+    - id: "build_judgment_hold_frames"
+      requirement: "BUILD, judgment/RESOLVE and HOLD keyframes are readable"
+    - id: "topology"
+      requirement: "edge endpoints, balance, branch ownership and non-overlap are correct"
+    - id: "state_color_and_dim"
+      requirement: "state color follows narration; DIM remains readable at its declared level"
+    - id: "audio_visual_beats"
+      requirement: "screen objects, captions and actions match final cue timing"
