@@ -1,0 +1,55 @@
+schema_version: 1
+project:
+  id: replace-with-project-id
+  catalog: /path/to/shared/sfx-catalog.yaml
+  sources:
+    narration: replace-with-narration-path
+    storyboard: replace-with-storyboard-path-or-null
+    animation: replace-with-animation-path-or-null
+  timing_authority: script_anchors
+  # 可选：AI Agent、代码或开发工具画面使用 developer_ui_feedback。
+  sound_style: general_knowledge
+
+density_plan:
+  profile: balanced
+  duration_s: null
+  target_cues_per_min: [3.5, 5.0]
+  target_count: null
+  planned_cue_count: 0
+  planned_cues_per_min: null
+  max_uncovered_semantic_gap_s: null
+
+omissions:
+  - scene_id: replace-with-scene-id
+    action: 普通卡片重复进入
+    reason: 装饰性重复动作，不承担新的认知关系。
+
+cues:
+  - id: sfx-001
+    scene_id: replace-with-scene-id
+    event: flow.connect
+    function: causality
+    priority: primary
+    # developer_ui_feedback 下，非 omitted cue 必填，且 before / after 必须不同。
+    state_change: null
+    visual_anchor:
+      action: replace-with-a-single-visible-action
+      trigger: impact
+    narration_anchor:
+      text: replace-with-spoken-meaning
+      position: after
+    timing:
+      at_s: null
+      offset_ms: 0
+    target:
+      material: paper
+      energy: [0.35, 0.65]
+      brightness: [0.20, 0.50]
+      max_duration_ms: 800
+    candidates:
+      - asset_id: replace-with-catalog-asset-id
+        rank: 1
+        rationale: replace-with-semantic-and-signal-fit
+    selected: null
+    status: needs_audition
+    rationale: replace-with-why-the-viewer-benefits-from-this-cue

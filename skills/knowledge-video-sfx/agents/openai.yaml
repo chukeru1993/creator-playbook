@@ -1,0 +1,4 @@
+interface:
+  display_name: "知识视频音效设计"
+  short_description: "结合口播、分镜和动画描述生成可试听、可校验的音效事件表，支持开发者 UI Feedback 风格"
+  default_prompt: "Use $knowledge-video-sfx to create an audition-ready sfx-cues.yaml for this knowledge video."
